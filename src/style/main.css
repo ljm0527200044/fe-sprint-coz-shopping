@@ -1,14 +1,19 @@
 main {
   height: 82vh;
   width: 100vw;
+  position: relative;
 }
 
 .img--wait,
 img {
-  height: 30vh;
+  height: 25vh;
   width: 20vw;
   border-radius: 12px;
   position: relative;
+}
+
+img:hover {
+  cursor: pointer;
 }
 
 .img-wait {
@@ -53,9 +58,16 @@ img {
 .product--list__title,
 .bookmark--list__title {
   display: block;
-  padding: 20px 90px;
   font-size: 20px;
   font-weight: 700;
+}
+
+.product--list__title {
+  padding: 15px 90px;
+}
+
+.bookmark--list__title {
+  padding: 15px 90px;
 }
 
 .product--title--subtitle {
@@ -67,9 +79,50 @@ img {
   padding: 5px 0px;
 }
 
-.fa-star {
+.star {
   color: #e2e2e2;
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   left: 255px;
+}
+
+.modal {
+  position: absolute;
+  left: 400px;
+  bottom: 100px;
+  z-index: 5;
+}
+
+.modal--item {
+  width: 600px;
+  height: 400px;
+  position: relative;
+}
+
+.modal .fa-x,
+.modal .fa-star {
+  position: absolute;
+  color: white;
+  cursor: pointer;
+  z-index: 7;
+}
+
+.modal .fa-x {
+  top: 20px;
+  right: -70px;
+}
+
+.modal .fa-star {
+  color: #e2e2e2;
+  top: 350px;
+  left: 20px;
+}
+
+.modal--title {
+  position: absolute;
+  left: 60px;
+  bottom: 25px;
+  font-size: 20px;
+  color: white;
+  z-index: 7;
 }

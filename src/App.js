@@ -1,14 +1,17 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Main from "./Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Productslist from "./Productslist";
+import Bookmark from "./Bookmark";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />}></Route>
+        <Route path="/products/list" element={<Productslist />}></Route>
+        <Route path="/bookmark" element={<Bookmark />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
