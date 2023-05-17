@@ -22,6 +22,7 @@ header {
   border-right: 18px solid transparent;
   right: 96px;
   top: 50px;
+  z-index: 10;
 }
 
 nav {
