@@ -8,6 +8,24 @@ function Productlist() {
   const [modalName, setModalName] = useState(null);
   const [modalDisable, setModalAble] = useState("modal disable");
 
+  function getApi() {
+    return fetch("http://cozshopping.codestates-seb.link/api/v1/products")
+      .then((response) => response.json())
+      .then((data) => setProductList(data));
+  }
+
+  function getApiFilter(el) {
+    return fetch("http://cozshopping.codestates-seb.link/api/v1/products")
+      .then((response) => response.json())
+      .then((data) =>
+        setProductList(
+          data.filter((item) => {
+            return item.type === el;
+          })
+        )
+      );
+  }
+
   useEffect(() => {
     fetch("http://cozshopping.codestates-seb.link/api/v1/products")
       .then((response) => response.json())
@@ -18,18 +36,11 @@ function Productlist() {
     <div>
       <Header />
       <div className="product--filter">
-        <div className="filter" onClick={() => setProductList(productList)}>
+        <div className="filter" onClick={() => getApi()}>
           <img src="img/all.jpg" alt="all" className="filter--img"></img>
           <span>전체</span>
         </div>
-        <div
-          className="filter"
-          onClick={() =>
-            setProductList(
-              productList.filter((item) => item.type === "Product")
-            )
-          }
-        >
+        <div className="filter" onClick={() => getApiFilter("Product")}>
           <img
             src="img/product.jpg"
             alt="product"
@@ -37,7 +48,7 @@ function Productlist() {
           ></img>
           <span>상품</span>
         </div>
-        <div className="filter">
+        <div className="filter" onClick={() => getApiFilter("Category")}>
           <img
             src="img/category.jpg"
             alt="category"
@@ -45,7 +56,7 @@ function Productlist() {
           ></img>
           <span>카테고리</span>
         </div>
-        <div className="filter">
+        <div className="filter" onClick={() => getApiFilter("Exhibition")}>
           <img
             src="img/exhibition.jpg"
             alt="exhibition"
@@ -53,7 +64,7 @@ function Productlist() {
           ></img>
           <span>기획전</span>
         </div>
-        <div className="filter">
+        <div className="filter" onClick={() => getApiFilter("Brand")}>
           <img src="img/brand.jpg" alt="brand" className="filter--img"></img>
           <span>브랜드</span>
         </div>
