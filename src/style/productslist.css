@@ -1,0 +1,25 @@
+.product--list {
+  flex-wrap: wrap;
+}
+
+.product--filter {
+  display: flex;
+  justify-content: center;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 20px;
+}
+
+.filter span {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.filter--img {
+  height: 82px;
+  width: 82px;
+  border-radius: 50%;
+}
